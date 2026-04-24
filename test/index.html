@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  <div id="navbar"></div>
+  <script src="components/navbar.js"></script>
+  <div class="counter">
+    <h1>Counter</h1>
+    <div id="count">0</div> 
+    <div class="buttons">
+      <button onclick="decrease5()">-5</button>
+      <button onclick="decrease()">-</button>
+      <button onclick="increase()">+</button>
+      <button onclick="increase5()">+5</button>
+
+    </div>
+    <div class="buttons">
+    <button class="small" onclick="divide()">Divide</button>
+      <button class="small" onclick="multiply()">Multiply</button>
+    </div>  
+    <div class="buttons">
+      <button class="small" onclick="opposite()">Opposite</button>
+    </div>
+    <div class="buttons">
+      <button class="reset" onclick="reset()">Reset</button>
+    </div>
+    <div class="message hidden" id="messagebox"></div>
+      <p id="message"></p>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
