@@ -6,6 +6,8 @@
   --link-text: #fcfcfc;
   --win-message: #00ff00;
   --lose-message: hsl(332, 100%, 50%);
+  --ohjeet-tausta: hsl(0, 0%, 84%);
+  --back: #e2b6ff;
 }
 
 * {
@@ -17,7 +19,8 @@
   color: var(--link-text);
   background-color: var(--navbar);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30px 1fr;
+  width: 100%;
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -25,6 +28,29 @@
   border-width: 2px;
   border-style: solid;
   padding: 10px;
+}
+
+.back {
+  justify-self: start;
+  color: var(--back);
+}
+
+.whoy .back a {
+  color: var(--back);
+  text-decoration: none;
+  font-size: 20px;
+} 
+
+.navbar {
+  display: flex;
+  gap: 20px;
+  justify-self: center;
+  width: 40%; /*more items = 90%*/
+}
+
+.navbar a {
+  flex: 1;
+  text-align: center;
 }
 
 .whoy :hover {
@@ -92,10 +118,55 @@ button.reset {
   padding-right: 70px;
 }
 
-.hidden {
-  display: none;
+.win {
+  background-color: var(--win-message);
 }
 
 .lose {
   background-color: var(--lose-message);
+}
+
+.counter-ohjeet {
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  z-index: 100;
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  line-height: 0;
+}
+
+.counter-ohjeet button {
+  padding: 0px;
+  font-size: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  border-color: var(--button);
+  border-width: 2px;
+  border-style: solid;
+  background-color: var(--button);
+  color: var(--button-text);
+}
+
+.counter-ohjeistus {
+  position: absolute;
+  top: 15%;
+  left: 2%;
+  font-size: 30px;
+  z-index: 100;
+  padding: 10px;
+  width: 25%;
+  background-color: var(--ohjeet-tausta);
+  border-radius: 10px;
+  margin: 0px;
+  display: block;
+  line-height: normal;
+}
+
+
+.hidden {
+  display: none;
 }

@@ -10,6 +10,12 @@
   <script src="components/navbar.js"></script>
   <div class="counter">
     <h1>Counter</h1>
+    <div class="counter-ohjeet">
+      <button onclick="toggleInstructions()">peliohjeet</button>
+    </div>
+    <div class="counter-ohjeistus hidden">
+      <p>Tällä sivulla on laskuri, josta löytyvät toiminnot: +1, -1, +5, -5, jaetaan kahdella (pyöristää ylöspäin), kerrotaan kahdella ja vastakkainen. Laskuri ilmoittaa voitosta, kun päästään yli 100 ja häviöstä, kun menee alle -100. Peliin voi keksiä itse säännöt, milloin painetaan mitäkin nappia.</p>
+    </div>
     <div id="count">0</div> 
     <div class="buttons">
       <button onclick="decrease5()">-5</button>
@@ -28,7 +34,7 @@
     <div class="buttons">
       <button class="reset" onclick="reset()">Reset</button>
     </div>
-    <div class="message hidden" id="messagebox"></div>
+    <div class="message hidden" id="messagebox">
       <p id="message"></p>
     </div>
   </div>

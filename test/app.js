@@ -21,6 +21,9 @@ function reset() {
 
 function divide() {
     count = count / 2;
+    if (Number.isInteger(count) === false) {
+        count = Math.round(count);
+    }
     document.getElementById("count").textContent = count;
     checkwin();
 }
@@ -68,9 +71,22 @@ function showMessage(msg) {
   const box = document.getElementById("messagebox");
   box.textContent = msg;
   box.classList.remove("hidden"); // ALWAYS show
+  if (msg === "You win!") {
+    box.classList.add("win");
+    box.classList.remove("lose");
+  }
+    else if (msg === "You lose!") {
+    box.classList.add("lose");
+    box.classList.remove("win");
+  }
 }
 
 function hideMessage() {
   const box = document.getElementById("messagebox");
   box.classList.add("hidden"); // ALWAYS hide
+}
+
+function toggleInstructions() {
+  const instructions = document.querySelector(".counter-ohjeistus");
+  instructions.classList.toggle("hidden");
 }
