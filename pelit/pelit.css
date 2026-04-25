@@ -2,7 +2,7 @@
   --button: #9900ff;
   --button-text: #fcfcfc;
   --navbar: hsl(133, 94%, 35%);
-  --navbar-hover: #ff00ff;
+  --navbar-hover: hsl(112, 85%, 61%);
   --link-text: #fcfcfc;
   --win-message: #00ff00;
   --lose-message: hsl(332, 100%, 50%);
