@@ -1,0 +1,2 @@
+move objects: opi tekemään hiirellä liikuteltavia asioita
+tallennusharjoitukset: opi tallentamaan tietoa json-tiedostoihin
