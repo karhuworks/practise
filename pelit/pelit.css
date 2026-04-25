@@ -1,0 +1,71 @@
+:root {
+  --button: #9900ff;
+  --button-text: #fcfcfc;
+  --navbar: hsl(133, 94%, 35%);
+  --navbar-hover: #ff00ff;
+  --link-text: #fcfcfc;
+  --win-message: #00ff00;
+  --lose-message: hsl(332, 100%, 50%);
+  --ohjeet-tausta: hsl(0, 0%, 84%);
+  --back: hsl(138, 100%, 86%);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.whoy {
+  color: var(--link-text);
+  background-color: var(--navbar);
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  width: 100%;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  border-color: var(--navbar);
+  border-width: 2px;
+  border-style: solid;
+  padding: 10px;
+}
+
+.back {
+  justify-self: start;
+  color: var(--back);
+}
+
+.whoy .back a {
+  color: var(--back);
+  text-decoration: none;
+  font-size: 20px;
+} 
+
+.navbar {
+  display: flex;
+  gap: 20px;
+  justify-self: center;
+  width: 40%; /*more items = 90%*/
+}
+
+.navbar a {
+  flex: 1;
+  text-align: center;
+}
+
+.back a:hover {
+  color: var(--navbar-hover);
+}
+
+.whoy :hover {
+  color: var(--navbar-hover);
+}
+
+.whoy a {
+  color: var(--link-text);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+
+
