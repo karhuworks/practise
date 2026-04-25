@@ -1,0 +1,14 @@
+:root {
+    --back-color: #e2b6ff;
+}
+
+.back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.back a {
+    text-decoration: none;
+    color: var(--back-color);
+}

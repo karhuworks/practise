@@ -1,4 +1,35 @@
-.a {
-    color: red;
-    justify-content: center;
+:root {
+  --link-text: hwb(0 100% 0%);
+  --link-text-hover: lch(73.95% 3.09 347.88);
+  --link-background: lab(77.94% -42.93 34.64);
+  --link-background-hover: lch(64.6% 61.1 139.65);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.links a {
+    color: var(--link-text);
+    font-size: larger;
+    text-decoration: none;
+    background-color: var(--link-background);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.links a:hover {
+    color: var(--link-text-hover);
+    background-color: var(--link-background-hover);
+}
+
+body {
+    background-image: url("pictures/Näyttökuva\ 2026-04-25\ 123819.png");
+    background-size: cover;
+    background-position: center;
 }
