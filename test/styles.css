@@ -1,6 +1,8 @@
 :root {
   --button: #9900ff;
+  --button-hover: hwb(276 11% 32%);
   --button-text: #fcfcfc;
+  --button-text-hover: #fcfcfc;
   --navbar: #9900ff;
   --navbar-hover: #ff00ff;
   --link-text: #fcfcfc;
@@ -91,9 +93,15 @@
   border-radius: 5px;
   border-color: var(--button);
   border-width: 2px;
-  border-style: solid;
+  border-style: none;
   background-color: var(--button);
   color: var(--button-text);
+}
+
+.buttons button:hover {
+  background-color: var(--button-hover);
+  color: var(--button-text-hover);
+  cursor: pointer;
 }
 
 button.small {
@@ -106,6 +114,7 @@ button.reset {
   color: var(--button);
   border-color: var(--button);
   font-size: 15px;
+  border-style: solid;
 }
 
 .message {
@@ -153,6 +162,10 @@ button.reset {
   border-style: solid;
   background-color: var(--button);
   color: var(--button-text);
+}
+
+.counter-ohjeet button:hover {
+  cursor: pointer;
 }
 
 .counter-ohjeistus {
