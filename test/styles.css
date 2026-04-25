@@ -5,6 +5,7 @@
   --navbar-hover: #ff00ff;
   --link-text: #fcfcfc;
   --win-message: #00ff00;
+  --lose-message: hsl(332, 100%, 50%);
 }
 
 * {
@@ -93,4 +94,8 @@ button.reset {
 
 .hidden {
   display: none;
+}
+
+.lose {
+  background-color: var(--lose-message);
 }
