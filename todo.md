@@ -4,7 +4,7 @@
 
 **tulevat**:
 
-* tallennusharjoitus 1: tiedon tallennus json-tiedostoihin, tekstin kirjoittaminen sivulla
+* kaiku: kirjoittaminen sivulle, tiedon säilyttäminen sivun uudelleenlatauksessa
 * move objects: objektien liikuttaminen hiirellä
 * gamehome: valikko, jossa pikkukuvalliset valinnat
 * tiktaktoe: javascriptillä toteutettu logiikka, grid layout
