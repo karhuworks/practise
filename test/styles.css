@@ -40,7 +40,7 @@
 .whoy .back a {
   color: var(--back);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
 } 
 
 .navbar {
@@ -66,12 +66,12 @@
 .whoy a {
   color: var(--link-text);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .counter {
   display: flex;
-  font-size: 50px;
+  font-size: 3.125rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -89,7 +89,7 @@
   padding: 10px;
   padding-left: 30px;
   padding-right: 30px;
-  font-size: 20px;
+  font-size: 1.25rem;
   border-radius: 5px;
   border-color: var(--button);
   border-width: 2px;

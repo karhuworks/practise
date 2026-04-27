@@ -16,7 +16,7 @@
 
 .links a {
     color: var(--link-text);
-    font-size: larger;
+    font-size: 1.5rem;
     text-decoration: none;
     background-color: var(--link-background);
     border-radius: 10px;

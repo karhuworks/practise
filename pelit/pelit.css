@@ -38,7 +38,7 @@
 .whoy .back a {
   color: var(--back);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
 } 
 
 .navbar {
@@ -64,7 +64,7 @@
 .whoy a {
   color: var(--link-text);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 
