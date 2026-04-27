@@ -17,6 +17,8 @@
   --game-link-background: hwb(137 52% 13%);
   --game-link-hover: hwb(112 38% 6%);
   --game-link-width: 250px;
+  --game-link-font-size: 1rem;
+  --font-size: 1.25rem;
 }
 
 * {
@@ -57,7 +59,7 @@ body {
 .whoy .back a {
   color: var(--back);
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: var(--font-size);
 } 
 
 .navbar {
@@ -87,7 +89,7 @@ body {
 .whoy a {
   color: var(--link-text);
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: var(--font-size);
 }
 
 .game-links {
@@ -119,7 +121,7 @@ body {
 .esc-link a {
   color: var(--game-link-text);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--game-link-font-size);
   display: flex;
   flex-direction: column;
   gap: 2px;

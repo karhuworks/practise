@@ -3,17 +3,8 @@
 }
 
 @media (max-width: 600px) {
-    .whoy .back a {
-        font-size: var(--ph-font-size);
+    html {
+        font-size: 18px;
     }
-
-    .whoy a {
-        font-size: var(--ph-font-size);
-    } 
-
-    .esc-link {
-        font-size: var(--ph-font-size);
-    }
-
 }
 
