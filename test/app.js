@@ -90,3 +90,4 @@ function toggleInstructions() {
   const instructions = document.querySelector(".counter-ohjeistus");
   instructions.classList.toggle("hidden");
 }
+

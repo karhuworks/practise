@@ -187,3 +187,34 @@ button.reset {
 .hidden {
   display: none;
 }
+
+.drag {
+  position: absolute;
+  z-index: 2;
+  background-color: var(--back);
+  border-radius: 10px;
+  border-color: black;
+  padding: 0.2rem;
+  cursor: move;
+}
+
+.dragheader {
+  cursor: move;
+  justify-self: center;
+  padding-left: 25%;
+  padding-right: 25%;
+  border: black solid 2px;
+  border-radius: 10px;
+  z-index: 10;
+  color: hsl(0, 0%, 0%);
+  height: 2rem;
+}
+
+.drag input {
+  border: 2px solid;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 0.625rem;
+  position: relative;
+  z-index: 100;
+}
