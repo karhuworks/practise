@@ -11,8 +11,8 @@
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0rem;
+  padding: 0rem;
 }
 
 .whoy {
@@ -27,7 +27,7 @@
   border-color: var(--navbar);
   border-width: 2px;
   border-style: solid;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 .back {
