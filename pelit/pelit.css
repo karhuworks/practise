@@ -85,7 +85,7 @@
 
 .game-links {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(var(--game-link-width), 1fr) );
   grid-template-rows: 180px;
   justify-items: center;
   gap: var(--content-gap);
