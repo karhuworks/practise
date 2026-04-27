@@ -26,8 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const teksti = localStorage.getItem("savedText");
   if (teksti) {
     input.value = teksti;
-  } else {
-    input.value = "--";
   }
 
   kaiku(teksti);   
