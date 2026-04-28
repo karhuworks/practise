@@ -1,0 +1,22 @@
+.room {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    height: 100vh;
+}
+
+.room img {
+    width: auto;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.testbutton {
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    left: 100%;
+    transform: translate(-100%, 0%);
+}
