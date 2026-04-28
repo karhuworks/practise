@@ -1,10 +1,7 @@
 :root {
-    --ph-font-size: 3rem;
 }
 
 @media (max-width: 600px) {
-    html {
-        font-size: 25px;
-    }
+
 }
 
