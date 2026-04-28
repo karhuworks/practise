@@ -3,7 +3,7 @@
     z-index: 0;
     top: 0px;
     left: 0px;
-    width: auto;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -16,7 +16,30 @@
 .testbutton {
     position: absolute;
     z-index: 1;
-    top: 0%;
-    left: 100%;
-    transform: translate(-100%, 0%);
+    top: 0vh;
+    right: 0vw;
 }
+
+.intro {
+    position: absolute;
+    z-index: 1;
+    top: 50vh;
+    left: 50vw;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.testitesti {
+    position: absolute;
+    z-index: 100;
+    bottom: 0px;
+    right: 10px;
+    width: fit-content;
+    color: rgb(255, 0, 0);
+    font-size: 3rem;}
