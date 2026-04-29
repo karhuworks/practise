@@ -1,0 +1,31 @@
+{
+  "name": "practise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "build:esc": "tsc -p pelit",
+}
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karhuworks/practise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/karhuworks/practise/issues"
+  },
+  "homepage": "https://github.com/karhuworks/practise#readme",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
