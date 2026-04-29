@@ -17,6 +17,9 @@ html, body {
 .room img {
     width: auto;
     height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .testbutton {
@@ -28,13 +31,22 @@ html, body {
 
 .intro {
     position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro p {
+    position: absolute;
     z-index: 1;
-    top: 50vh;
-    left: 50vw;
-    width: fit-content;
+    top: 50%;
+    left: 50%;
+    width: 80%;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .hidden {
@@ -49,3 +61,31 @@ html, body {
     width: fit-content;
     color: rgb(255, 0, 0);
     font-size: 3rem;}
+
+.testsolve {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+}
+
+
+/* HUONE 1 */
+
+.room1 {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #b1c392;
+}
+
+.room1 img {
+    width: auto;
+    height: 100vh;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
