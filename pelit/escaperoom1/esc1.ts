@@ -1,6 +1,9 @@
+type roomnumbers =  1 | 2 | 3;
+type intronumbers = 0 | 1 | 2 | 3 | 4;
+
 type State =
-  | { mode: "intro"; step: 0 | 1 | 2 | 3 | 4}
-  | { mode: "room"; step: 1 | 2 | 3 }
+  | { mode: "intro"; step: intronumbers}
+  | { mode: "room"; step: roomnumbers}
   | { mode: "win"; step: 0};
 
 let solved: boolean = false;
@@ -11,6 +14,11 @@ let solved: boolean = false;
 }; */
 
 let state: State = {
+    mode: "intro",
+    step: 0
+};
+
+let oldstate: State = {
     mode: "intro",
     step: 0
 };
@@ -26,10 +34,12 @@ function show() { /*testifunktio*/
 }
 
 function changestate() {
+    //hideState();
+    oldstate = {...state};
 
     if (state.step === 0) {
         state.step = 1;
-        document.getElementById("testbutton")?.classList.add("hidden");
+        //document.getElementById("testbutton")?.classList.add("hidden");
     }
     else if (state.step === 4) {
         return;
@@ -56,13 +66,9 @@ function changestate() {
 }
 
 function renderRoom() {
-    unhideState();
-
-    //room solved
-    let button = document.getElementById("testsolve" + state.mode + state.step);
-    if (button) {
-        button.addEventListener("click", changeSolved)
-    }   
+    hide(oldstate);
+    let currentState: State = state; 
+    unhide(currentState);
 }
 
 function changeSolved() {
@@ -71,7 +77,7 @@ function changeSolved() {
     test(testsolved);
 
     if (solved) {
-        hideState();
+        //hideState();
         solved = false;
         changestate();
     }
@@ -94,6 +100,22 @@ function hideState() {
 
 function unhideState() {
     let roomElement = document.getElementById(state.mode + state.step);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
+
+function hide(objeckt: State) {
+    let roomElement = document.getElementById(objeckt.mode + objeckt.step);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.add("hidden");
+}
+
+function unhide(objeckt: State) {
+    let roomElement = document.getElementById(objeckt.mode + objeckt.step);
     if (!roomElement) {
         throw new Error(roomElement + "not found");
     }

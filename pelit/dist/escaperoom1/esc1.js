@@ -7,6 +7,10 @@ let state = {
     mode: "intro",
     step: 0
 };
+let oldstate = {
+    mode: "intro",
+    step: 0
+};
 function show() {
     const a = document.querySelector(".testitesti p");
     if (a) {
@@ -17,9 +21,11 @@ function show() {
     }
 }
 function changestate() {
+    //hideState();
+    oldstate = { ...state };
     if (state.step === 0) {
         state.step = 1;
-        document.getElementById("testbutton")?.classList.add("hidden");
+        //document.getElementById("testbutton")?.classList.add("hidden");
     }
     else if (state.step === 4) {
         return;
@@ -43,19 +49,16 @@ function changestate() {
     renderRoom();
 }
 function renderRoom() {
-    unhideState();
-    //room solved
-    let button = document.getElementById("testsolve" + state.mode + state.step);
-    if (button) {
-        button.addEventListener("click", changeSolved);
-    }
+    hide(oldstate);
+    let currentState = state;
+    unhide(currentState);
 }
 function changeSolved() {
     solved = !solved;
     let testsolved = "" + solved;
     test(testsolved);
     if (solved) {
-        hideState();
+        //hideState();
         solved = false;
         changestate();
     }
@@ -75,6 +78,20 @@ function hideState() {
 }
 function unhideState() {
     let roomElement = document.getElementById(state.mode + state.step);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
+function hide(objeckt) {
+    let roomElement = document.getElementById(objeckt.mode + objeckt.step);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.add("hidden");
+}
+function unhide(objeckt) {
+    let roomElement = document.getElementById(objeckt.mode + objeckt.step);
     if (!roomElement) {
         throw new Error(roomElement + "not found");
     }
