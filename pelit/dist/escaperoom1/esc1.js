@@ -1,3 +1,5 @@
+import { loadText, getText } from "./text.js";
+await loadText();
 let solved = false;
 /* type State = {
   mode: "intro" | "room";
@@ -56,17 +58,9 @@ function renderRoom() {
 function changeSolved() {
     solved = !solved;
     let testsolved = "" + solved;
-    test(testsolved);
     if (solved) {
-        //hideState();
         solved = false;
         changestate();
-    }
-}
-function test(output) {
-    const a = document.querySelector(".testitesti p");
-    if (a) {
-        a.textContent = output;
     }
 }
 function hideState() {
@@ -103,5 +97,4 @@ document.querySelectorAll(".testsolve").forEach(btn => {
 });
 document.addEventListener("DOMContentLoaded", show);
 document.getElementById("testbutton")?.addEventListener("click", changestate);
-export {};
 //# sourceMappingURL=esc1.js.map

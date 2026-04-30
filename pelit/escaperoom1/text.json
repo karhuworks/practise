@@ -1,0 +1,35 @@
+{
+  "intro0": {
+    "title": "Welcome to an escape room.",
+    "subtitle": "Click start to start the game.",
+    "button": "Start"
+  },
+  "intro1": {
+    "text": "You were kidnapped by your friend. You are locked in his room. The door has a lock with a four-digit code. You know your friend likes to base his passwords on things around him. Look around to find the code to the lock.",
+    "button": "Continue"
+  },
+    "intro2": {
+    "text": "You sneek out of the room. The front door is locked from the outside. There are no other doors, but gou notice that the kitchen window is open. You are on the third floor but there is a tree behind the window. Try to find your way down.",
+    "button": "Continue"
+  },
+    "intro3": {
+    "text": "You reached the ground! You are almost safe, but your friend has noticed you are gone. You need to get away fast. Pick a car to drive away before your friend comes after you.",
+    "button": "Continue"
+  },
+    "intro4": {
+    "text": "YOU ESCAPED",
+    "button": "Continue"
+  },
+    "room1": {
+    "hint": "Look at the desk",
+    "code": "9146"
+  },
+    "room2": {
+    "hint": "Look at the desk",
+    "code": "1234"
+  },
+    "room3": {
+    "hint": "Look at the desk",
+    "code": "1234"
+  }
+}

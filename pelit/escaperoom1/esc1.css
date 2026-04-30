@@ -1,8 +1,13 @@
+:root {
+    --intro-font-size: 2rem;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 100%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .room {
@@ -16,7 +21,7 @@ html, body {
 
 .room img {
     width: auto;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -25,12 +30,12 @@ html, body {
 .testbutton {
     position: absolute;
     z-index: 1;
-    top: 0vh;
-    right: 0vw;
+    top: 0%;
+    left: 0%;
 }
 
 .intro {
-    position: absolute;
+    position: absolute; 
     z-index: 0;
     top: 0px;
     left: 0px;
@@ -38,7 +43,7 @@ html, body {
     height: 100vh;
 }
 
-.intro p {
+.intro > p { /* vain suorat lapset*/
     position: absolute;
     z-index: 1;
     top: 50%;
@@ -46,21 +51,21 @@ html, body {
     width: 80%;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
-    font-size: 2rem;
+    font-size: var(--intro-font-size);
 }
 
 .hidden {
     display: none;
 }
 
-.testitesti {
+.testitesti { /* poistettava */ 
     position: absolute;
     z-index: 100;
     bottom: 0px;
     right: 10px;
     width: fit-content;
     color: rgb(255, 0, 0);
-    font-size: 3rem;}
+    font-size: var(--intro-font-size);}
 
 .testsolve {
     position: absolute;
@@ -68,6 +73,24 @@ html, body {
     top: 50%;
 }
 
+/* WELCOME */
+
+.welcometext {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 40px;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.welcometext p {
+    position: static;
+    font-size: var(--intro-font-size);
+    margin: 0px;
+}
 
 /* HUONE 1 */
 
@@ -80,12 +103,3 @@ html, body {
     height: 100vh;
     background-color: #b1c392;
 }
-
-.room1 img {
-    width: auto;
-    height: 100vh;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
-}
-

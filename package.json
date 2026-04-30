@@ -10,9 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "watch": "tsc --watch",
-    "build:esc": "tsc -p pelit",
-}
-  },
+    "build:esc": "tsc -p pelit"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/karhuworks/practise.git"

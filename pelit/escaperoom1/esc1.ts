@@ -1,10 +1,13 @@
+import { loadText, getText } from "./text.js";
+
+await loadText();
+
 type roomnumbers =  1 | 2 | 3;
 type intronumbers = 0 | 1 | 2 | 3 | 4;
 
 type State =
   | { mode: "intro"; step: intronumbers}
   | { mode: "room"; step: roomnumbers}
-  | { mode: "win"; step: 0};
 
 let solved: boolean = false;
 
@@ -74,19 +77,10 @@ function renderRoom() {
 function changeSolved() {
     solved = !solved;
     let testsolved: string = "" + solved;
-    test(testsolved);
 
     if (solved) {
-        //hideState();
         solved = false;
         changestate();
-    }
-}
-
-function test(output: string){
-    const a = document.querySelector(".testitesti p");
-    if (a) {
-        a.textContent = output;
     }
 }
 
