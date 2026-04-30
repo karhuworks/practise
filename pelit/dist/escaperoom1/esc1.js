@@ -137,7 +137,7 @@ document.querySelectorAll(".testsolve").forEach(btn => {
 show();
 renderRoom();
 document.getElementById("testbutton")?.addEventListener("click", changestate);
-// ====== ZOOM ======
+// ================== ZOOM ==================
 const overlay = document.getElementById("zoomOverlay");
 const zoomImg = document.getElementById("zoomImage");
 /*function openZoom(src: string) {
@@ -190,5 +190,14 @@ overlay?.addEventListener("click", closeZoom);
   if (target.classList.contains("inspectable")) {
     openZoom((target as HTMLImageElement).src);
   }
-});*/ 
+});*/
+// ================== Clicable ==================
+const clues = document.querySelectorAll(".osoitin");
+function openClue(e) {
+    const target = e.currentTarget;
+    target.classList.add("osoitin-clicked");
+}
+clues.forEach(element => {
+    element.addEventListener("click", openClue);
+});
 //# sourceMappingURL=esc1.js.map

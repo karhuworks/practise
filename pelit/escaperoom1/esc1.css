@@ -101,6 +101,11 @@ html, body {
             HUONE 1          
     ======================== */
 
+.room {
+    --osoitin-z: 999;
+    --overlay-height: 100vh;
+}
+
 .room1 {
     position: absolute;
     z-index: 0;
@@ -110,11 +115,14 @@ html, body {
     height: 100vh;
     background-color: #b1c392;
 }
-/*
+
 .osoitin {
     position: absolute;
-    z-index: 10;
-    border: black 2px solid;
+    z-index: var(--osoitin-z);
+}
+
+.osoitin:hover {
+    background-color: rgba(255, 238, 2, 0.6);
 }
 
 #osoitin1 {
@@ -126,11 +134,13 @@ html, body {
     left: 3%;
 }
 
-#osoitin1:hover {
-    height: calc(var(--height) * 2);
-    width: calc(var(--width) * 2);
-    transform: translate(0%, -15%);
-    background-image: url("./pictures/esc1_r1_t1_z.png");
+.osoitin-clicked {
+    height: var(--overlay-height);
+    width: auto;
+    left: 50vh;
+    top: 50vw;
+    transform: translate(-50%, -50%);
+    background-image: url("./pictures/esc1_r1_t1.png");
     background-size: cover;
 }
 
@@ -143,14 +153,16 @@ html, body {
     left: 0%;
 }
 
-#osoitin2:hover {
-    height: calc(var(--height) * 2);
-    width: calc(var(--width) * 2);
-    transform: translate(0%, -15%);
-    background-image: url("./pictures/ecs1_r1_t2_z.png");
+#osoitin2-clicked {
+    height: var(--overlay-height);
+    width: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("./pictures/esc1_r1_t2.png");
     background-size: cover;
 }
-*/
+
 
 /*  ========================
             ZOOM          
@@ -164,7 +176,7 @@ html, body {
   left: calc(25vw / 2);
   width: 75vw;
   height: 100vh;
-  z-index: 999;
+  z-index: 800;
   overflow: hidden;
 }
 

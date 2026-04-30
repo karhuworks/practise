@@ -171,7 +171,7 @@ renderRoom();
 
 document.getElementById("testbutton")?.addEventListener("click", changestate);
 
-// ====== ZOOM ======
+// ================== ZOOM ==================
 
 const overlay = document.getElementById("zoomOverlay");
 const zoomImg = document.getElementById("zoomImage") as HTMLImageElement;
@@ -245,3 +245,17 @@ overlay?.addEventListener("click", closeZoom);
     openZoom((target as HTMLImageElement).src);
   }
 });*/
+
+
+// ================== Clicable ==================
+
+const clues = document.querySelectorAll(".osoitin");
+
+function openClue(e: Event) {
+  const target = e.currentTarget as HTMLElement;
+  target.classList.add("osoitin-clicked");
+}
+
+clues.forEach(element => {
+    element.addEventListener("click", openClue);
+});
