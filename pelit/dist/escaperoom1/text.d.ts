@@ -33,6 +33,7 @@ type GameText = {
         code: string;
     };
 };
+export type StateKey = keyof GameText;
 export declare function loadText(): Promise<void>;
 export declare function getText<K extends keyof GameText>(key: K): GameText[K];
 export {};

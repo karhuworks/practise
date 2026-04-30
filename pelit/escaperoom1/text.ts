@@ -34,6 +34,8 @@ type GameText = {
   };
 };
 
+export type StateKey = keyof GameText;
+
 let gameText: GameText;
 
 export async function loadText() {
