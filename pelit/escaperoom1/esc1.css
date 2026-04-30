@@ -19,12 +19,17 @@ html, body {
     height: 100vh;
 }
 
+.image-wrapper {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .room img {
     width: auto;
     height: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
 
 .testbutton {
@@ -92,7 +97,9 @@ html, body {
     margin: 0px;
 }
 
-/* HUONE 1 */
+/*  ========================
+            HUONE 1          
+    ======================== */
 
 .room1 {
     position: absolute;
@@ -102,4 +109,74 @@ html, body {
     width: 100vw;
     height: 100vh;
     background-color: #b1c392;
+}
+/*
+.osoitin {
+    position: absolute;
+    z-index: 10;
+    border: black 2px solid;
+}
+
+#osoitin1 {
+    --height: 23%;
+    --width: 28%;
+    height: var(--height);
+    width: var(--width);
+    top: 54%;
+    left: 3%;
+}
+
+#osoitin1:hover {
+    height: calc(var(--height) * 2);
+    width: calc(var(--width) * 2);
+    transform: translate(0%, -15%);
+    background-image: url("./pictures/esc1_r1_t1_z.png");
+    background-size: cover;
+}
+
+#osoitin2 {
+    --height: 23%;
+    --width: 35%;
+    height: var(--height);
+    width: var(--width);
+    top: 22%;
+    left: 0%;
+}
+
+#osoitin2:hover {
+    height: calc(var(--height) * 2);
+    width: calc(var(--width) * 2);
+    transform: translate(0%, -15%);
+    background-image: url("./pictures/ecs1_r1_t2_z.png");
+    background-size: cover;
+}
+*/
+
+/*  ========================
+            ZOOM          
+    ======================== */
+
+#zoomOverlay {
+  position: absolute;
+  display: grid;
+  inset: 0;
+  justify-items: center;
+  left: calc(25vw / 2);
+  width: 75vw;
+  height: 100vh;
+  z-index: 999;
+  overflow: hidden;
+}
+
+#zoomImage {
+  transform-origin: center;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: zoom-out;
+  height: 100vh
+}
+
+
+#zoomOverlay.hidden {
+  display: none;
 }

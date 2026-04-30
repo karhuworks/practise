@@ -8,6 +8,7 @@
 
 </head>
 <body>
+    </div>
     <div class="room">
         <img>
     </div>
@@ -16,7 +17,13 @@
         <button class="testsolve" id="testsolveintro1">Press this</button>
     </div>
     <div class="room room1 hidden" id="room1">
-        <img src="pictures/esc1_r1.jpg">
+        <div class="image-wrapper">
+            <div class="osoitin" id="osoitin1"></div>
+            <div class="osoitin" id="osoitin2"></div>
+            <div class="osoitin" id="osoitin3"></div>
+            <div class="osoitin" id="osoitin4"></div>
+            <img src="pictures/esc1_r1.jpg" class="inspectable" id="keyImage">
+        </div>
         <button class="testsolve" id="testsolveroom1">Press this</button>
     </div>
     <div class="room intro hidden" id="intro2">
@@ -24,7 +31,9 @@
         <button class="testsolve" id="testsolveintro2">Press this</button>
     </div>
     <div class="room hidden" id="room2">
-        <img src="pictures/esc1_r2.jpg">
+        <div class="image-wrapper">
+            <img src="pictures/esc1_r2.jpg">
+        </div>
         <button class="testsolve" id="testsolveroom2">Press this</button>
     </div>
     <div class="room intro hidden" id="intro3">
@@ -32,7 +41,9 @@
         <button class="testsolve" id="testsolveintro3">Press this</button>
     </div>
     <div class="room hidden" id="room3">
-        <img src="pictures/esc1_r3.jpg">
+        <div class="image-wrapper">
+            <img src="pictures/esc1_r3.jpg">
+        </div>
         <button class="testsolve" id="testsolveroom3">Press this</button>
     </div>
     <div class="intro" id="intro0">
@@ -48,6 +59,8 @@
     <div class="testitesti">
         <p></p>
     </div>
+    <div id="zoomOverlay" class="hidden">
+        <img id="zoomImage" src="">
     <script type="module" src="../dist/escaperoom1/esc1.js"></script>
 </body>
 </html>

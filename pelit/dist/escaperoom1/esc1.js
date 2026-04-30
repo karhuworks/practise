@@ -56,6 +56,7 @@ function renderRoom() {
     let stateName = state.mode + state.step;
     //let stateKey = state.mode + state.step as StateKey;
     unhide(currentState);
+    bindZoom();
     switch (stateName) {
         case "intro0":
             renderIntro0();
@@ -136,4 +137,58 @@ document.querySelectorAll(".testsolve").forEach(btn => {
 show();
 renderRoom();
 document.getElementById("testbutton")?.addEventListener("click", changestate);
+// ====== ZOOM ======
+const overlay = document.getElementById("zoomOverlay");
+const zoomImg = document.getElementById("zoomImage");
+/*function openZoom(src: string) {
+  if (!overlay || !zoomImg) return;
+
+  zoomImg.src = src;
+  overlay.classList.remove("hidden");
+}*/
+function openZoom(src, x = 0.5, y = 0.5) {
+    if (!overlay || !zoomImg)
+        return;
+    zoomImg.src = src;
+    overlay.classList.remove("hidden");
+    const scale = 2.5;
+    const scaledWidth = zoomImg.clientWidth * scale;
+    const scaledHeight = zoomImg.clientHeight * scale;
+    const offsetX = (0.5 - x) * 100;
+    const offsetY = (0.5 - y) * 100;
+    const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+    const maxX = (scaledWidth - window.innerWidth) / 2;
+    const maxY = (scaledHeight - window.innerHeight) / 2;
+    const clampedX = clamp(offsetX, -maxX, maxX);
+    const clampedY = clamp(offsetY, -maxY, maxY);
+    zoomImg.style.transform = `translate(${offsetX}%, ${offsetY}%) scale(${scale})`;
+}
+function closeZoom() {
+    overlay?.classList.add("hidden");
+}
+/*function bindZoom() {
+  document.querySelectorAll(".inspectable").forEach((img) => {
+    img.addEventListener("mouseover", () => {
+      openZoom((img as HTMLImageElement).src);
+    });
+  });
+}*/
+function bindZoom() {
+    document.querySelectorAll(".inspectable").forEach((img) => {
+        img.addEventListener("click", (e) => {
+            const rect = img.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            openZoom(img.src, x, y);
+        });
+    });
+}
+overlay?.addEventListener("click", closeZoom);
+/*document.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+
+  if (target.classList.contains("inspectable")) {
+    openZoom((target as HTMLImageElement).src);
+  }
+});*/ 
 //# sourceMappingURL=esc1.js.map
