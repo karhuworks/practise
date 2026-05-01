@@ -6,6 +6,7 @@
 
 * gamehome: valikko, jossa pikkukuvalliset valinnat
 * tiktaktoe: javascriptillä toteutettu logiikka, grid layout
+* save draggable objects position
 
 
 
