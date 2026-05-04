@@ -247,15 +247,105 @@ overlay?.addEventListener("click", closeZoom);
 });*/
 
 
-// ================== Clicable ==================
+// ================== CLUES ==================
+
+let currentClue: string;
 
 const clues = document.querySelectorAll(".osoitin");
 
 function openClue(e: Event) {
-  const target = e.currentTarget as HTMLElement;
-  target.classList.add("osoitin-clicked");
+    e.stopPropagation();
+
+    const target = e.currentTarget as HTMLElement; //currenttarget = elemnentti, johon event listener liitetty
+    const id = target.id;
+    const imgnumber = id.slice(-2);
+    const imgid: string = "clue" + imgnumber;
+    
+    const image = document.getElementById(imgid);
+    if (image) {
+        currentClue = imgid;
+        image.classList.remove("hidden");
+        fadebackground();
+        document.removeEventListener("click", closeClue); 
+        document.addEventListener("click", closeClue);
+    }
+}
+
+function closeClue(e: Event) {
+    const image = document.getElementById(currentClue);
+    
+    if (image && image.contains(e.target as Node)) {
+        return;
+    }
+
+    if (image) {
+        currentClue = "";
+        removefade();
+        image.classList.add("hidden");
+        document.removeEventListener("click", closeClue);
+    }
 }
 
 clues.forEach(element => {
     element.addEventListener("click", openClue);
 });
+
+function fadebackground() {
+    const fade = document.querySelectorAll<HTMLElement>(".backgroundfade");
+    const currentfade = fade[state.step-1];
+
+    currentfade?.classList.remove("hidden");
+}
+
+function removefade() {
+    const fade = document.querySelectorAll<HTMLElement>(".backgroundfade");
+    const currentfade = fade[state.step-1];
+
+    currentfade?.classList.add("hidden");
+}
+
+// ================== VASTAUS ==================
+
+
+function tarkistavastaus(vastauselement: HTMLElement) {
+    test("hello");
+    const inputelement = vastauselement.querySelector(".vastausinput") as HTMLInputElement;
+    const input = inputelement.value;
+    const huone = Number(vastauselement.dataset.huone);
+    let vastaus: string;
+
+    const answers = {
+    1: getText("room1").code,
+    2: getText("room2").code,
+    3: getText("room3").code
+    } as const;
+
+    vastaus = answers[huone as 1 | 2 | 3] ?? "0";
+
+    if (input === vastaus) {
+        changestate();
+    }
+    else {
+        flashClass(vastauselement, "wrong", 1);
+    }
+}
+
+document.querySelectorAll(".vastauslaatikko").forEach(box => {
+    const el = box as HTMLElement;
+    const button = box.querySelector(".vastausbutton") as HTMLButtonElement;
+    console.log("box", box);
+    console.log("button", button);
+    button.addEventListener("click", () => {
+        tarkistavastaus(el);
+    });
+});
+
+function flashClass(el: HTMLElement, className: string, s: number) {
+    const ms = s * 1000;
+
+    el.classList.add(className);
+
+    setTimeout(() => {
+        el.classList.remove(className);
+    }, ms);
+}

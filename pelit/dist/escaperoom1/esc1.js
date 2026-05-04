@@ -191,13 +191,83 @@ overlay?.addEventListener("click", closeZoom);
     openZoom((target as HTMLImageElement).src);
   }
 });*/
-// ================== Clicable ==================
+// ================== CLUES ==================
+let currentClue;
 const clues = document.querySelectorAll(".osoitin");
 function openClue(e) {
-    const target = e.currentTarget;
-    target.classList.add("osoitin-clicked");
+    e.stopPropagation();
+    const target = e.currentTarget; //currenttarget = elemnentti, johon event listener liitetty
+    const id = target.id;
+    const imgnumber = id.slice(-2);
+    const imgid = "clue" + imgnumber;
+    const image = document.getElementById(imgid);
+    if (image) {
+        currentClue = imgid;
+        image.classList.remove("hidden");
+        fadebackground();
+        document.removeEventListener("click", closeClue);
+        document.addEventListener("click", closeClue);
+    }
+}
+function closeClue(e) {
+    const image = document.getElementById(currentClue);
+    if (image && image.contains(e.target)) {
+        return;
+    }
+    if (image) {
+        currentClue = "";
+        removefade();
+        image.classList.add("hidden");
+        document.removeEventListener("click", closeClue);
+    }
 }
 clues.forEach(element => {
     element.addEventListener("click", openClue);
 });
+function fadebackground() {
+    const fade = document.querySelectorAll(".backgroundfade");
+    const currentfade = fade[state.step - 1];
+    currentfade?.classList.remove("hidden");
+}
+function removefade() {
+    const fade = document.querySelectorAll(".backgroundfade");
+    const currentfade = fade[state.step - 1];
+    currentfade?.classList.add("hidden");
+}
+// ================== VASTAUS ==================
+function tarkistavastaus(vastauselement) {
+    test("hello");
+    const inputelement = vastauselement.querySelector(".vastausinput");
+    const input = inputelement.value;
+    const huone = Number(vastauselement.dataset.huone);
+    let vastaus;
+    const answers = {
+        1: getText("room1").code,
+        2: getText("room2").code,
+        3: getText("room3").code
+    };
+    vastaus = answers[huone] ?? "0";
+    if (input === vastaus) {
+        changestate();
+    }
+    else {
+        flashClass(vastauselement, "wrong", 1);
+    }
+}
+document.querySelectorAll(".vastauslaatikko").forEach(box => {
+    const el = box;
+    const button = box.querySelector(".vastausbutton");
+    console.log("box", box);
+    console.log("button", button);
+    button.addEventListener("click", () => {
+        tarkistavastaus(el);
+    });
+});
+function flashClass(el, className, s) {
+    const ms = s * 1000;
+    el.classList.add(className);
+    setTimeout(() => {
+        el.classList.remove(className);
+    }, ms);
+}
 //# sourceMappingURL=esc1.js.map

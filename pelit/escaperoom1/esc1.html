@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>other</title>
+  <title>Kidnapped</title>
   <link rel="stylesheet" href="esc1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,12 +17,27 @@
         <button class="testsolve" id="testsolveintro1">Press this</button>
     </div>
     <div class="room room1 hidden" id="room1">
+
         <div class="image-wrapper">
-            <div class="osoitin" id="osoitin1"></div>
-            <div class="osoitin" id="osoitin2"></div>
-            <div class="osoitin" id="osoitin3"></div>
-            <div class="osoitin" id="osoitin4"></div>
+            <div class="osoitin" id="osoitin11"></div>
+            <div class="osoitin" id="osoitin12"></div>
+            <div class="osoitin" id="osoitin13"></div>
+            <div class="osoitin" id="osoitin14"></div>
+            <div class="osoitin" id="osoitin15"></div>
             <img src="pictures/esc1_r1.jpg" class="inspectable" id="keyImage">
+        </div>
+        <div>
+            <img class="clue hidden" id="clue11" src="pictures/esc1_r1_t1.png">
+            <img class="clue hidden" id="clue12" src="pictures/esc1_r1_t2.png">
+            <img class="clue hidden" id="clue13" src="pictures/esc1_r1_t3.png">
+            <img class="clue hidden" id="clue14" src="pictures/esc1_r1_t4.jpg">
+            <img class="clue hidden" id="clue15" src="pictures/esc1_r1_s.png">
+            <div class="backgroundfade hidden"></div>
+        </div> 
+        <div class="vastauslaatikko" data-huone="1">
+            <p>Vastaus</p>
+            <input class="vastausinput">
+            <button class="vastausbutton">Check</button>
         </div>
         <button class="testsolve" id="testsolveroom1">Press this</button>
     </div>
@@ -59,8 +74,10 @@
     <div class="testitesti">
         <p></p>
     </div>
+
     <div id="zoomOverlay" class="hidden">
         <img id="zoomImage" src="">
+
     <script type="module" src="../dist/escaperoom1/esc1.js"></script>
 </body>
 </html>

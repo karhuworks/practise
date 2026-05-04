@@ -1,5 +1,14 @@
 :root {
     --intro-font-size: 2rem;
+    --osoitin-color: red; 
+    --osoitin-halkaisija: 8px;
+    --z-room: 0;
+    --z-imagewrapper: 1;
+    --z-text: 2;
+    --z-osoitin: 5;
+    --z-clue: 10;
+    --z-overlay: 100;
+    --z-fade: 7;
 }
 
 html, body {
@@ -10,9 +19,13 @@ html, body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+* > p {
+    margin: 0px;
+}
+
 .room {
     position: absolute;
-    z-index: 0;
+    z-index: var(--z-room);
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -21,7 +34,7 @@ html, body {
 
 .image-wrapper {
     position: absolute;
-    z-index: 1;
+    z-index: var(--z-imagewrapper);
     height: 100%;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -34,14 +47,14 @@ html, body {
 
 .testbutton {
     position: absolute;
-    z-index: 1;
+    z-index: var(--z-text);
     top: 0%;
     left: 0%;
 }
 
 .intro {
     position: absolute; 
-    z-index: 0;
+    z-index: var(--z-room);
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -50,7 +63,7 @@ html, body {
 
 .intro > p { /* vain suorat lapset*/
     position: absolute;
-    z-index: 1;
+    z-index: var(--z-text);
     top: 50%;
     left: 50%;
     width: 80%;
@@ -85,7 +98,7 @@ html, body {
     flex-direction: column;
     position: absolute;
     gap: 40px;
-    z-index: 2;
+    z-index: var(--z-text);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -108,7 +121,7 @@ html, body {
 
 .room1 {
     position: absolute;
-    z-index: 0;
+    z-index: var(--z-room);
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -119,50 +132,88 @@ html, body {
 .osoitin {
     position: absolute;
     z-index: var(--osoitin-z);
+    height: var(--osoitin-halkaisija);
+    width: var(--osoitin-halkaisija);
+    background-color: var(--osoitin-color);
+    padding: 5px;
+    background-clip: content-box;
+    border-radius: 100%;
 }
 
 .osoitin:hover {
-    background-color: rgba(255, 238, 2, 0.6);
+    background-color: rgba(196, 255, 2);
 }
 
-#osoitin1 {
-    --height: 23%;
-    --width: 28%;
-    height: var(--height);
-    width: var(--width);
-    top: 54%;
-    left: 3%;
+#osoitin11 {
+    top: 65%;
+    left: 20%;
 }
 
-.osoitin-clicked {
-    height: var(--overlay-height);
-    width: auto;
-    left: 50vh;
-    top: 50vw;
-    transform: translate(-50%, -50%);
-    background-image: url("./pictures/esc1_r1_t1.png");
-    background-size: cover;
+#osoitin12 {
+    top: 35%;
+    left: 20%;
 }
 
-#osoitin2 {
-    --height: 23%;
-    --width: 35%;
-    height: var(--height);
-    width: var(--width);
-    top: 22%;
-    left: 0%;
+#osoitin13 {
+    top: 35%;
+    right: 40%
 }
 
-#osoitin2-clicked {
+#osoitin14 {
+    bottom: 39%;
+    right: 39%;
+}
+
+#osoitin15 {
+    bottom: 49%;
+    right: 5%;
+}
+
+.clue {
+    position: absolute;
+    z-index: var(--z-clue);
     height: var(--overlay-height);
     width: auto;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url("./pictures/esc1_r1_t2.png");
-    background-size: cover;
+    transform: translate(-50%, 0);
+    border-radius: 0%;
+    border: black 2px solid;
 }
 
+#clue15 {
+    border: transparent;
+}
+
+.vastauslaatikko {
+    --color-s: rgb(180, 175, 129);
+    --color-s2: rgb(175, 170, 121);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: var(--z-clue);
+    top: 10px;
+    right: 10px;
+    border: var(--color-s) 2px groove;
+    box-shadow: 5px 10px 18px lab(0% 0 0 / 0.363);
+    border-radius: 10px;
+    padding: 5px;
+    background-color: var(--color-s);
+}
+
+
+.wrong {
+    background-color: red;
+}
+
+.backgroundfade {
+    position: absolute;
+    z-index: var(--z-fade);
+    height: 100vh;
+    width: 100vw;
+    background-color: hsl(0, 0%, 0%, 0.5);
+}
 
 /*  ========================
             ZOOM          
