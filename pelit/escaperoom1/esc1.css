@@ -354,6 +354,7 @@ html, body {
     width: 100vw;
     position: absolute;
     z-index: var(--z-testsolved);
+    background-color: antiquewhite;
     background-image: url("./pictures/hurrah.jpg");
     gap: 10px;
     padding-top: 25vh;
@@ -379,7 +380,6 @@ html, body {
 .testsolved button:hover {
     color: #9d48ed;
     transform: scale(1.5);
-    background-color: antiquewhite;
     background-color: #9d48ed;
     color: #d7bdef;
 }
