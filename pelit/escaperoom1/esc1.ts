@@ -384,7 +384,7 @@ function tarkistavastaus(vastauselement: HTMLElement) {
 
     if (input.trim() === vastaus.trim() && vastaus.trim() !== "") {
         //changestate();
-        testsolved;
+        testsolved();
     }
     else {
         flashClass(vastauselement, "wrong", 1);

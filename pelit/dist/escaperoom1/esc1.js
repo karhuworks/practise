@@ -297,7 +297,7 @@ function tarkistavastaus(vastauselement) {
     vastaus = answers[huone] ?? "0";
     if (input.trim() === vastaus.trim() && vastaus.trim() !== "") {
         //changestate();
-        testsolved;
+        testsolved();
     }
     else {
         flashClass(vastauselement, "wrong", 1);

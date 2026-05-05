@@ -354,11 +354,12 @@ html, body {
     width: 100vw;
     position: absolute;
     z-index: var(--z-testsolved);
-    background-color: blanchedalmond;
+    background-image: url("./pictures/hurrah.jpg");
     gap: 10px;
     padding-top: 25vh;
     align-items: center;
     font-size: larger;
+    color: white;
 }
 
 .testsolved button {
@@ -369,6 +370,7 @@ html, body {
     transition: transform 0.5s ease;
 }
 
+
 .testsolved p:hover {
     transform: scale(2);
     color: #9d48ed;
@@ -376,8 +378,9 @@ html, body {
 
 .testsolved button:hover {
     color: #9d48ed;
-    background-color: transparent;
-    transform: scale(2);
+    transform: scale(1.5);
+    background-color: #9d48ed;
+    color: #d7bdef;
 }
 
 .testsolved h2:hover {
