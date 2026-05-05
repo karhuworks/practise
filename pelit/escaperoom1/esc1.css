@@ -4,11 +4,13 @@
     --osoitin-halkaisija: 8px;
     --z-room: 0;
     --z-imagewrapper: 1;
+    --z-background: 0;
     --z-text: 2;
     --z-osoitin: 5;
     --z-clue: 10;
     --z-overlay: 100;
     --z-fade: 7;
+    --z-testsolved: 200;
 }
 
 html, body {
@@ -42,15 +44,27 @@ html, body {
 
 .room img {
     width: auto;
+    max-width: 70vw;
     height: 100%;
 }
 
-.testbutton {
+
+.testitesti { /* poistettava */ 
     position: absolute;
-    z-index: var(--z-text);
-    top: 0%;
+    z-index: 100;
+    bottom: 0px;
+    right: 10px;
+    width: fit-content;
+    color: rgb(255, 0, 0);
+    font-size: var(--intro-font-size);}
+
+.testsolve {
+    position: absolute;
     left: 0%;
+    top: 50%;
 }
+
+/* INTROS */
 
 .intro {
     position: absolute; 
@@ -72,42 +86,85 @@ html, body {
     font-size: var(--intro-font-size);
 }
 
-.hidden {
-    display: none;
+.intro img {
+    position: absolute;
+    z-index: var(--z-background);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.testitesti { /* poistettava */ 
+.content-wrapper {
     position: absolute;
-    z-index: 100;
-    bottom: 0px;
-    right: 10px;
-    width: fit-content;
-    color: rgb(255, 0, 0);
-    font-size: var(--intro-font-size);}
-
-.testsolve {
-    position: absolute;
-    left: 0%;
-    top: 50%;
+    z-index: var(--z-text);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-/* WELCOME */
+.content-wrapper p {
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.continuebutton {
+    border: none;
+    background-color: #d3e760;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-top: 30px;
+    width: 40%;
+}
+
+.continuebutton:hover {
+    background-color: #a6ba38;
+}
+
 
 .welcometext {
     display: flex;
     flex-direction: column;
     position: absolute;
-    gap: 40px;
+    gap: 20px;
     z-index: var(--z-text);
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.welcometext h1 {
+    font-size: 3rem;
+    padding: 0px;
+    margin: 0px;
 }
 
 .welcometext p {
     position: static;
     font-size: var(--intro-font-size);
     margin: 0px;
+}
+
+.startbutton {
+    border: none;
+    background-color: #d3e760;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    width: 90%;
+}
+
+.startbutton:hover {
+    background-color: #a6ba38;
 }
 
 /*  ========================
@@ -127,6 +184,13 @@ html, body {
     width: 100vw;
     height: 100vh;
     background-color: #b1c392;
+}
+
+.ohje {
+    position: absolute;
+    bottom: 2px;
+    left: -100px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .osoitin {
@@ -200,8 +264,15 @@ html, body {
     border-radius: 10px;
     padding: 5px;
     background-color: var(--color-s);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.vastausbutton {
+    background-color: rgb(140, 135, 92);
+    color: white;
+    border-radius: 5px;
+    padding: 3px;
+}
 
 .wrong {
     background-color: red;
@@ -213,6 +284,35 @@ html, body {
     height: 100vh;
     width: 100vw;
     background-color: hsl(0, 0%, 0%, 0.5);
+}
+
+.hintbuttons {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 300px;
+}
+
+.hintbutton {
+    width: 70px;
+}
+
+.hint {
+    display: none;
+}
+
+.hint-clicked {
+    position: relative;
+    z-index: var(--z-clue);
+    display: block;
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    border: black 2px solid;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 /*  ========================
@@ -239,7 +339,52 @@ html, body {
   height: 100vh
 }
 
-
 #zoomOverlay.hidden {
   display: none;
+}
+
+/*  ========================
+            TEST          
+    ======================== */
+
+.testsolved {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: var(--z-testsolved);
+    background-color: blanchedalmond;
+    gap: 10px;
+    padding-top: 25vh;
+    align-items: center;
+    font-size: larger;
+}
+
+.testsolved button {
+    margin-top: 20px;
+    background-color: #c07efd;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.testsolved p:hover {
+    transform: scale(2);
+    color: #9d48ed;
+}
+
+.testsolved button:hover {
+    color: #9d48ed;
+    background-color: transparent;
+    transform: scale(2);
+}
+
+.testsolved h2:hover {
+    transform: scale(2);
+    color: #9d48ed;
+}
+
+.hidden {
+    display: none;
 }

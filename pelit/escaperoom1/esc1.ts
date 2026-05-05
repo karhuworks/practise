@@ -77,7 +77,7 @@ function renderRoom() {
 
     bindZoom();
 
-    switch (stateName) {
+/*     switch (stateName) {
     case "intro0":
         renderIntro0();
         break;
@@ -90,7 +90,7 @@ function renderRoom() {
     case "intro3":
         renderRoomIntro("intro3");
         break;
-    }
+    } */
 }
 
 function renderIntro0(){
@@ -152,6 +152,22 @@ function unhide(objeckt: State) {
     roomElement.classList.remove("hidden");
 }
 
+function unhidebyid(id: string) {
+    let roomElement = document.getElementById(id);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
+
+function hidebyid(id: string) {
+    let roomElement = document.getElementById(id);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
+
 function test(output: string){
     const a = document.querySelector(".testitesti p");
     if (a) {
@@ -161,7 +177,7 @@ function test(output: string){
 
 /* EVENT LISTENERS */
 
-document.querySelectorAll(".testsolve").forEach(btn => {
+document.querySelectorAll(".continuebutton").forEach(btn => {
     btn.addEventListener("click", changeSolved);
 });
 
@@ -169,7 +185,7 @@ document.querySelectorAll(".testsolve").forEach(btn => {
 show();
 renderRoom();
 
-document.getElementById("testbutton")?.addEventListener("click", changestate);
+document.getElementById("startbutton")?.addEventListener("click", changestate);
 
 // ================== ZOOM ==================
 
@@ -304,15 +320,59 @@ function removefade() {
     currentfade?.classList.add("hidden");
 }
 
+// ================== HINTS ==================
+
+const hintbuttons = document.querySelectorAll<HTMLElement>(".hintbutton");
+hintbuttons.forEach(b => b.addEventListener("click", () => {
+    annavihje(b);
+}));
+
+function annavihje(hintelement: HTMLElement){
+    const huone = hintelement.dataset.huone;
+    const hint = hintelement.dataset.id;
+    const hintnumber = Number(hint);
+    const datakey = "room" + huone as "room1" | "room2" | "room3"; 
+    const vinkki = "hint" + hint as "hint1" | "hint2";
+    const data = getText(datakey);
+
+    const elementid = "hint" + huone + hint;
+    const el = document.getElementById(elementid);
+
+    if (!el) return;
+
+    if (el.classList.contains("hint-clicked")) {
+        el.classList.remove("hint-clicked");
+        el.innerHTML = ""; // or keep content if you prefer
+        return;
+    }
+
+    if (hintnumber === 1) {
+        el.innerHTML = data.hint1;
+    }
+    else if (hintnumber === 2) {
+        el.innerHTML = data.hint2;
+    }
+    else {
+        el.innerHTML = "Error: data not found";
+    }
+    el.classList.add("hint-clicked");
+     
+}
+
+
+
 // ================== VASTAUS ==================
 
 
 function tarkistavastaus(vastauselement: HTMLElement) {
-    test("hello");
     const inputelement = vastauselement.querySelector(".vastausinput") as HTMLInputElement;
     const input = inputelement.value;
     const huone = Number(vastauselement.dataset.huone);
     let vastaus: string;
+
+    if (!input.trim()) {
+        return;
+    }
 
     const answers = {
     1: getText("room1").code,
@@ -322,8 +382,9 @@ function tarkistavastaus(vastauselement: HTMLElement) {
 
     vastaus = answers[huone as 1 | 2 | 3] ?? "0";
 
-    if (input === vastaus) {
-        changestate();
+    if (input.trim() === vastaus.trim() && vastaus.trim() !== "") {
+        //changestate();
+        testsolved;
     }
     else {
         flashClass(vastauselement, "wrong", 1);
@@ -348,4 +409,19 @@ function flashClass(el: HTMLElement, className: string, s: number) {
     setTimeout(() => {
         el.classList.remove(className);
     }, ms);
+}
+
+// ================== TEST SOLVED ==================
+
+function testsolved(){
+    const d = document.getElementById("testsolved");
+    d?.classList.remove("hidden");
+
+    const b = document.getElementById("exittest");
+    b?.addEventListener("click", poistu);
+
+}
+
+function poistu() {
+    window.location.href = "../pelit.html";
 }

@@ -57,7 +57,7 @@ function renderRoom() {
     //let stateKey = state.mode + state.step as StateKey;
     unhide(currentState);
     bindZoom();
-    switch (stateName) {
+    /*     switch (stateName) {
         case "intro0":
             renderIntro0();
             break;
@@ -70,7 +70,7 @@ function renderRoom() {
         case "intro3":
             renderRoomIntro("intro3");
             break;
-    }
+        } */
 }
 function renderIntro0() {
     const text = getText("intro0");
@@ -123,6 +123,20 @@ function unhide(objeckt) {
     }
     roomElement.classList.remove("hidden");
 }
+function unhidebyid(id) {
+    let roomElement = document.getElementById(id);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
+function hidebyid(id) {
+    let roomElement = document.getElementById(id);
+    if (!roomElement) {
+        throw new Error(roomElement + "not found");
+    }
+    roomElement.classList.remove("hidden");
+}
 function test(output) {
     const a = document.querySelector(".testitesti p");
     if (a) {
@@ -130,13 +144,13 @@ function test(output) {
     }
 }
 /* EVENT LISTENERS */
-document.querySelectorAll(".testsolve").forEach(btn => {
+document.querySelectorAll(".continuebutton").forEach(btn => {
     btn.addEventListener("click", changeSolved);
 });
 //document.addEventListener("DOMContentLoaded", renderRoom);
 show();
 renderRoom();
-document.getElementById("testbutton")?.addEventListener("click", changestate);
+document.getElementById("startbutton")?.addEventListener("click", changestate);
 // ================== ZOOM ==================
 const overlay = document.getElementById("zoomOverlay");
 const zoomImg = document.getElementById("zoomImage");
@@ -234,21 +248,56 @@ function removefade() {
     const currentfade = fade[state.step - 1];
     currentfade?.classList.add("hidden");
 }
+// ================== HINTS ==================
+const hintbuttons = document.querySelectorAll(".hintbutton");
+hintbuttons.forEach(b => b.addEventListener("click", () => {
+    annavihje(b);
+}));
+function annavihje(hintelement) {
+    const huone = hintelement.dataset.huone;
+    const hint = hintelement.dataset.id;
+    const hintnumber = Number(hint);
+    const datakey = "room" + huone;
+    const vinkki = "hint" + hint;
+    const data = getText(datakey);
+    const elementid = "hint" + huone + hint;
+    const el = document.getElementById(elementid);
+    if (!el)
+        return;
+    if (el.classList.contains("hint-clicked")) {
+        el.classList.remove("hint-clicked");
+        el.innerHTML = ""; // or keep content if you prefer
+        return;
+    }
+    if (hintnumber === 1) {
+        el.innerHTML = data.hint1;
+    }
+    else if (hintnumber === 2) {
+        el.innerHTML = data.hint2;
+    }
+    else {
+        el.innerHTML = "Error: data not found";
+    }
+    el.classList.add("hint-clicked");
+}
 // ================== VASTAUS ==================
 function tarkistavastaus(vastauselement) {
-    test("hello");
     const inputelement = vastauselement.querySelector(".vastausinput");
     const input = inputelement.value;
     const huone = Number(vastauselement.dataset.huone);
     let vastaus;
+    if (!input.trim()) {
+        return;
+    }
     const answers = {
         1: getText("room1").code,
         2: getText("room2").code,
         3: getText("room3").code
     };
     vastaus = answers[huone] ?? "0";
-    if (input === vastaus) {
-        changestate();
+    if (input.trim() === vastaus.trim() && vastaus.trim() !== "") {
+        //changestate();
+        testsolved;
     }
     else {
         flashClass(vastauselement, "wrong", 1);
@@ -269,5 +318,15 @@ function flashClass(el, className, s) {
     setTimeout(() => {
         el.classList.remove(className);
     }, ms);
+}
+// ================== TEST SOLVED ==================
+function testsolved() {
+    const d = document.getElementById("testsolved");
+    d?.classList.remove("hidden");
+    const b = document.getElementById("exittest");
+    b?.addEventListener("click", poistu);
+}
+function poistu() {
+    window.location.href = "../pelit.html";
 }
 //# sourceMappingURL=esc1.js.map

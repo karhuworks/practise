@@ -21,15 +21,18 @@ type GameText = {
     button: string;
   };
   room1: {
-    hint: string;
+    hint1: string;
+    hint2: string;
     code: string;
   };
   room2: {
-    hint: string;
+    hint1: string;
+    hint2: string;
     code: string;
   };
   room3: {
-    hint: string;
+    hint1: string;
+    hint2: string;
     code: string;
   };
 };

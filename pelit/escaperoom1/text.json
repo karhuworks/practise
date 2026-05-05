@@ -21,15 +21,18 @@
     "button": "Continue"
   },
   "room1": {
-    "hint": "Look at the desk",
+    "hint1": "Every closer look gives you one number for the lock.",
+    "hint2": "In the room, you find numbers 1-4 that tell you the order.",
     "code": "9146"
   },
   "room2": {
-    "hint": "Look at the desk",
+    "hint1": "",
+    "hint2": "",
     "code": "1234"
   },
   "room3": {
-    "hint": "Look at the desk",
+    "hint1": "",
+    "hint2": "",
     "code": "1234"
   }
 }
